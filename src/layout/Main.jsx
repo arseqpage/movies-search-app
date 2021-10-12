@@ -7,11 +7,13 @@ import {Search} from "../components/Search";
 
 class Main extends React.Component {
     state = {
-        movies: []
+        movies: [],
+        type: ''
     }
 
-    searchFilms = (params) => {
-        fetch(URL + API_KEY + '&s=' + params)
+    searchFilms = (params, type = 'all') => {
+        console.log(type)
+        fetch(URL + API_KEY + '&s=' + params + `${type !== 'all' ? `&type=${type}` : ''}`)
             .then(resp => resp.json())
             .then(data => this.setState({...this.state, movies: data.Search}))
             .catch(err => console.log(err))
