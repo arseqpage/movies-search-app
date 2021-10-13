@@ -16,8 +16,6 @@ class Search extends React.Component {
         this.setState(() => ({type: e.target.value}), () => {
             this.props.searchFilms(this.state.search, this.state.type)
         })
-
-
     }
 
     render() {

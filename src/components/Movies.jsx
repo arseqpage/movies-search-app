@@ -1,11 +1,14 @@
 import React from 'react';
 import Movie from "./Movie";
 
-const Movies = ({movies}) => {
+const Movies = ({movies = []}) => {
 
     return (
         <div className="movies">
-            {movies.map((movie) => <Movie key={movie.imdbID} {...movie}/>)}
+            {movies?.length
+                ? movies.map((movie) => <Movie key={movie.imdbID} {...movie}/>)
+                : <h4>Ничего не найдено</h4>
+            }
         </div>
     );
 };

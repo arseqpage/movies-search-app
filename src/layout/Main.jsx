@@ -8,34 +8,34 @@ import {Search} from "../components/Search";
 class Main extends React.Component {
     state = {
         movies: [],
-        type: ''
+        loading: true,
     }
 
     searchFilms = (params, type = 'all') => {
-        console.log(type)
+        this.setState({loading:true})
         fetch(URL + API_KEY + '&s=' + params + `${type !== 'all' ? `&type=${type}` : ''}`)
             .then(resp => resp.json())
-            .then(data => this.setState({...this.state, movies: data.Search}))
+            .then(data => this.setState({...this.state, movies: data.Search, loading: false}))
             .catch(err => console.log(err))
     }
 
     componentDidMount() {
         fetch(URL + API_KEY + '&s=matrix')
             .then(resp => resp.json())
-            .then(data => this.setState({...this.state, movies: data.Search}))
+            .then(data => this.setState({...this.state, movies: data.Search, loading: false}))
             .catch(err => console.log(err))
     }
 
     render() {
-        const {movies} = this.state
+        const {movies, loading} = this.state
 
         return (
             <main className='container content'>
                 <Search searchFilms={this.searchFilms}/>
 
-                {movies?.length
-                    ? <Movies movies={movies} />
-                    : <Preloader/>
+                {loading
+                    ? <Preloader/>
+                    : <Movies movies={movies} />
                 }
             </main>
         );
