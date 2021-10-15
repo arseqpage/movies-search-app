@@ -3,6 +3,7 @@ import Movies from '../components/Movies';
 import { URL, API_KEY } from '../utils/getFilms';
 import Preloader from '../components/Preloader';
 import { Search } from '../components/Search';
+import { Row, Col } from 'antd';
 
 class Main extends React.Component {
   state = {
@@ -29,11 +30,13 @@ class Main extends React.Component {
     const { movies, loading } = this.state;
 
     return (
-      <main className="container content">
-        <Search searchFilms={this.searchFilms} />
+      <Row>
+        <Col span={18} offset={3}>
+          <Search searchFilms={this.searchFilms} loading={loading} />
+        </Col>
 
         {loading ? <Preloader /> : <Movies movies={movies} />}
-      </main>
+      </Row>
     );
   }
 }
