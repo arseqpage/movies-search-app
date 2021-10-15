@@ -1,16 +1,26 @@
 import React from 'react';
-import Movie from "./Movie";
+import { Row, Col } from 'antd';
 
-const Movies = ({movies = []}) => {
+import Movie from './Movie';
 
-    return (
-        <div className="movies">
-            {movies?.length
-                ? movies.map((movie) => <Movie key={movie.imdbID} {...movie}/>)
-                : <h4>Ничего не найдено</h4>
-            }
-        </div>
-    );
+const Movies = ({ movies = [] }) => {
+  return (
+    <Row
+      gutter={[16, 16]}
+      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      {movies?.length ? (
+        movies.map((movie) => (
+          <Col span={{ xs: 12, sm: 8, md: 4 }}>
+            <div>
+              <Movie key={movie.imdbID} {...movie} />
+            </div>
+          </Col>
+        ))
+      ) : (
+        <h4>Ничего не найдено</h4>
+      )}
+    </Row>
+  );
 };
 
 export default Movies;

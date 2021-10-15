@@ -27,7 +27,7 @@ class Search extends React.Component {
     return (
       <div className="row">
         <div className="col s12">
-          <div className="input-field">
+          <div className="search-action">
             <Input.Search
               placeholder="Введите название фильма/сериала..."
               onSearch={this.setValuesInSearch}
@@ -38,7 +38,10 @@ class Search extends React.Component {
           </div>
         </div>
 
-        <Radio.Group onChange={(e) => this.handleFilter(e)} value={'all'}>
+        <Radio.Group
+          className="search-filter"
+          onChange={(e) => this.handleFilter(e)}
+          value={this.state.type}>
           <Radio value={'all'}>All</Radio>
           <Radio value={'movies'}>Movies</Radio>
           <Radio value={'series'}>Series</Radio>

@@ -32,10 +32,14 @@ class Main extends React.Component {
     return (
       <Row>
         <Col span={18} offset={3}>
-          <Search searchFilms={this.searchFilms} loading={loading} />
+          <div className="search">
+            <Search searchFilms={this.searchFilms} loading={loading} />
+          </div>
         </Col>
 
-        {loading ? <Preloader /> : <Movies movies={movies} />}
+        <Col span={20} offset={2}>
+          {loading ? <Preloader /> : <Movies movies={movies} />}
+        </Col>
       </Row>
     );
   }

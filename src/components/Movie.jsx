@@ -8,7 +8,7 @@ const Movie = ({ Title: title, Year: year, imdbID: id, Type: type, Poster: poste
     <Card
       id={id}
       hoverable
-      style={{ width: 240 }}
+      style={{ width: '100%' }}
       cover={
         poster === 'N/A' ? (
           <img src={`https://via.placeholder.com/300x150?text=${title}`} alt="" />

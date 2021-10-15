@@ -34,6 +34,7 @@ nav {
 .header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 50px;
 }
 
 .menu-links {
@@ -42,4 +43,12 @@ nav {
 
 .header-logo {
   justify-self: start;
+}
+
+.search {
+  margin-bottom: 30px;
+}
+
+.search-action {
+  margin-bottom: 20px;
 }
