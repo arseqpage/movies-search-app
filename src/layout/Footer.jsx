@@ -1,16 +1,12 @@
 import React from 'react';
+import { Layout } from 'antd';
 
 const Footer = () => {
-    return (
-        <footer className="page-footer deep-purple darken-2">
-            <div className="footer-copyright">
-                <div className="container">
-                    © {new Date().getFullYear()} Copyright Text
-                    <a className="grey-text text-lighten-4 right" href="#!">Repo</a>
-                </div>
-            </div>
-        </footer>
-    );
+  return (
+    <Layout.Footer style={{ textAlign: 'center' }}>
+      © {new Date().getFullYear()} Copyright Movies search app with antd
+    </Layout.Footer>
+  );
 };
 
 export default Footer;

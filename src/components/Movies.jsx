@@ -10,7 +10,7 @@ const Movies = ({ movies = [] }) => {
       style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       {movies?.length ? (
         movies.map((movie) => (
-          <Col span={{ xs: 12, sm: 8, md: 4 }}>
+          <Col span={{ xs: 12, sm: 8, md: 4 }} key={movie.imdbID}>
             <div>
               <Movie key={movie.imdbID} {...movie} />
             </div>

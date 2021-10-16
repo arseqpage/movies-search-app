@@ -13,6 +13,11 @@ class Main extends React.Component {
 
   searchFilms = (params, type = 'all') => {
     this.setState({ loading: true });
+
+    if (!params) {
+      params = 'matrix';
+    }
+
     fetch(URL + API_KEY + '&s=' + params + `${type !== 'all' ? `&type=${type}` : ''}`)
       .then((resp) => resp.json())
       .then((data) => this.setState({ ...this.state, movies: data.Search, loading: false }))

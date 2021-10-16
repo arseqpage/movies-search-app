@@ -43,7 +43,7 @@ class Search extends React.Component {
           onChange={(e) => this.handleFilter(e)}
           value={this.state.type}>
           <Radio value={'all'}>All</Radio>
-          <Radio value={'movies'}>Movies</Radio>
+          <Radio value={'movie'}>Movies</Radio>
           <Radio value={'series'}>Series</Radio>
         </Radio.Group>
       </div>
